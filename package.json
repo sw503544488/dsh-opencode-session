@@ -1,7 +1,7 @@
 {
   "name": "dsh-opencode-go-session",
-  "version": "0.1.0",
-  "description": "Sends a stable per-conversation x-opencode-session header to OpenCode Go (and any pi-ai endpoint), so routing and prompt caching stay consistent, with a sidebar panel showing the value each conversation sent.",
+  "version": "0.1.1",
+  "description": "Sends a stable per-conversation x-opencode-session header to OpenCode Go (and any pi-ai endpoint) through the harness header hook, so routing and prompt caching stay per conversation.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sw503544488/dsh-opencode-go-session.git"
@@ -14,7 +14,6 @@
   "main": "index.js",
   "exports": {
     ".": "./index.js",
-    "./client": "./client.js",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json",
@@ -22,7 +21,6 @@
   },
   "files": [
     "index.js",
-    "client.js",
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
@@ -32,13 +30,6 @@
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
-    },
-    "client": {
-      "platform": "web",
-      "immediately": true,
-      "inject": [
-        "@deepseek-ai/dsh-client-ui-slots"
-      ]
     }
   },
   "keywords": [

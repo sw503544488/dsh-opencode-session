@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "OpenCode session header",
-    "description": "Derives x-opencode-session from the conversation id on every pi-ai call to OpenCode, so routing and prompt caching stay per conversation, and lists the value each conversation sent in a sidebar panel."
+    "description": "Derives x-opencode-session from the conversation id on every pi-ai call to OpenCode, so routing and prompt caching stay per conversation."
   }
 }

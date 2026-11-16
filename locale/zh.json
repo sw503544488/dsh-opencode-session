@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "OpenCode 会话头",
-    "description": "把每次发往 OpenCode 的 pi-ai 请求的 x-opencode-session 换成该会话自己的 id，让路由与提示缓存按会话生效，并在侧栏面板列出每个会话发送过的值。"
+    "description": "把每次发往 OpenCode 的 pi-ai 请求的 x-opencode-session 换成该会话自己的 id，让路由与提示缓存按会话生效。"
   }
 }

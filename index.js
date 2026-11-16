@@ -4,8 +4,8 @@
  * The OpenCode gateway wants one stable session id per conversation in
  * `x-opencode-session` so it can route that conversation consistently and reuse
  * its prompt cache. This plugin derives the value from the DSH session of each
- * inference call through the `llm-pi-ai/request-headers` waterfall, and serves
- * what it sent to the sidebar panel under `/plugins/opencode-go-session/api`.
+ * inference call through the `llm-pi-ai/request-headers` waterfall, and reports
+ * what it sent on `/plugins/opencode-go-session/api/status`.
  *
  * A static value may stay in the provider's `headers`; a header set here wins,
  * because the waterfall runs after the profile headers are copied into the
@@ -128,7 +128,7 @@ export function apply(ctx, config) {
     return next();
   });
 
-  /** `GET /status`: what the panel shows. Read-only, loopback only in practice. */
+  /** `GET /status`: what the plugin has sent so far. Read-only. */
   const handler = (req, res) => {
     const method = req.method ?? 'GET';
     if (method !== 'GET' && method !== 'HEAD') {
