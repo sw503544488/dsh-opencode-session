@@ -1,10 +1,10 @@
-# Bundle patch for dsh-opencode-session.
+# Bundle patch for dsh-opencode-go-session.
 #
 # Every field below is optional; the defaults are what most users want.
 # Uncomment to change them, then reload the profile.
 - insert:
-    - id: opencode-session
-      name: 'dsh-opencode-session'
+    - id: opencode-go-session
+      name: 'dsh-opencode-go-session'
       # config:
       #   # Header that carries the conversation id. Default: x-opencode-session.
       #   headerName: x-opencode-session

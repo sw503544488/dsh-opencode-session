@@ -1,4 +1,4 @@
-# dsh-opencode-session
+# dsh-opencode-go-session
 
 OpenCode's Console gateway asks every client to send **one stable session id per conversation** in the `x-opencode-session` header, so the gateway can route that conversation consistently and reuse its prompt cache. A hardcoded value makes every conversation look like the same one; no value means no affinity at all.
 
@@ -17,7 +17,7 @@ This DeepSeek Harness plugin makes the value dynamic: every inference call over 
 - **Plugin Market / Plugin Manager**: add the package.
 - **Local directory**: Plugins → Add plugin → select this directory.
 
-The plugin adds one row, `opencode-session`. No configuration is required.
+The plugin adds one row, `opencode-go-session`. No configuration is required. It is published on npm as `dsh-opencode-go-session`.
 
 ## Configuration
 
@@ -30,8 +30,8 @@ Change the row's `config` in `cordis.patch.yml` (the loader restarts the plugin 
 | `fallbackValue` | *(empty)* | Value for calls with no DSH session id, such as a helper request from outside a conversation. Empty omits the header on those calls. |
 
 ```yaml
-- id: opencode-session
-  name: 'dsh-opencode-session'
+- id: opencode-go-session
+  name: 'dsh-opencode-go-session'
   config:
     endpoints: opencode
 ```
@@ -39,7 +39,7 @@ Change the row's `config` in `cordis.patch.yml` (the loader restarts the plugin 
 ## Verify
 
 1. Open the sidebar entry **OpenCode session header**. It lists each conversation with its id, the model it called, and how long ago.
-2. Or read the same data from the Host: `curl http://127.0.0.1:3080/plugins/opencode-session/api/status`
+2. Or read the same data from the Host: `curl http://127.0.0.1:3080/plugins/opencode-go-session/api/status`
 
 A conversation appears the first time it reaches an OpenCode endpoint after the plugin loads.
 

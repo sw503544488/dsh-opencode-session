@@ -64,7 +64,7 @@ async function readStatus(route) {
       end(body) { payload.body = JSON.parse(body); resolve(payload); },
     };
     try {
-      route.handler({ method: 'GET', url: '/plugins/opencode-session/api/status' }, res);
+      route.handler({ method: 'GET', url: '/plugins/opencode-go-session/api/status' }, res);
     } catch (error) {
       reject(error);
     }
@@ -170,7 +170,7 @@ test('the status api reports what was sent', async () => {
   assert.equal(value.stats.errors, 0);
   assert.deepEqual(value.sessions.map((row) => row.sessionId), ['session-b', 'session-a']);
   assert.deepEqual(value.sessions.map((row) => row.count), [1, 2]);
-  assert.equal(name, 'opencode-session');
+  assert.equal(name, 'opencode-go-session');
 });
 
 test('an unknown api path is 404', async () => {
@@ -178,7 +178,7 @@ test('an unknown api path is 404', async () => {
   apply(ctx, {});
   const route = routes.find((entry) => entry.path.endsWith('/api'));
   const status = await new Promise((resolve) => {
-    route.handler({ method: 'GET', url: '/plugins/opencode-session/api/other' }, {
+    route.handler({ method: 'GET', url: '/plugins/opencode-go-session/api/other' }, {
       writeHead(value) { resolve(value); },
       end() {},
     });

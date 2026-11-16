@@ -1,20 +1,20 @@
 /**
- * dsh-opencode-session — Client half.
+ * dsh-opencode-go-session — Client half.
  *
  * Adds one sidebar entry and its central panel: whether the header is going out,
  * which endpoints receive it, and the value each recent conversation sent. The
  * values come from the Host API registered by `index.js`; this half only renders.
  */
 window.__ModuleLoader__.load({
-  id: 'dsh-opencode-session',
+  id: 'dsh-opencode-go-session',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
     const { useCallback, useEffect, useState } = React;
 
-    const NS = 'opencode-session';
-    const API = '/plugins/opencode-session/api';
-    const PANEL_KEY = 'opencode-session';
+    const NS = 'opencode-go-session';
+    const API = '/plugins/opencode-go-session/api';
+    const PANEL_KEY = 'opencode-go-session';
     const PANEL_ORDER = 44;
     const REFRESH_MS = 3000;
 
@@ -369,7 +369,7 @@ window.__ModuleLoader__.load({
       inject: ['slots', 'locale'],
       apply(ctx) {
         for (const [locale, dict] of Object.entries(DICT)) {
-          ctx.effect(() => ctx.locale.register(NS, locale, dict), `dsh-opencode-session: ${locale} texts`);
+          ctx.effect(() => ctx.locale.register(NS, locale, dict), `dsh-opencode-go-session: ${locale} texts`);
         }
         boundT = ctx.locale.bind(NS);
 
@@ -381,7 +381,7 @@ window.__ModuleLoader__.load({
             label: () => boundT('title'),
             locale: NS,
           }, SidebarIcon)),
-          'dsh-opencode-session: sidebar entry',
+          'dsh-opencode-go-session: sidebar entry',
         );
         ctx.effect(
           () => ctx.slots.inject('main', () => ctx.slots.register({
@@ -389,7 +389,7 @@ window.__ModuleLoader__.load({
             key: PANEL_KEY,
             locale: NS,
           }, Panel)),
-          'dsh-opencode-session: main panel',
+          'dsh-opencode-go-session: main panel',
         );
       },
     };

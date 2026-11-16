@@ -1,11 +1,11 @@
 /**
- * dsh-opencode-session — Host half.
+ * dsh-opencode-go-session — Host half.
  *
  * The OpenCode gateway wants one stable session id per conversation in
  * `x-opencode-session` so it can route that conversation consistently and reuse
  * its prompt cache. This plugin derives the value from the DSH session of each
  * inference call through the `llm-pi-ai/request-headers` waterfall, and serves
- * what it sent to the sidebar panel under `/plugins/opencode-session/api`.
+ * what it sent to the sidebar panel under `/plugins/opencode-go-session/api`.
  *
  * A static value may stay in the provider's `headers`; a header set here wins,
  * because the waterfall runs after the profile headers are copied into the
@@ -14,12 +14,12 @@
 import { createRequire } from 'node:module';
 
 /** Stable cordis plugin name. */
-export const name = 'opencode-session';
+export const name = 'opencode-go-session';
 
 const require = createRequire(import.meta.url);
 const { version } = require('./package.json');
 
-const API_BASE = '/plugins/opencode-session/api';
+const API_BASE = '/plugins/opencode-go-session/api';
 const DEFAULT_HEADER = 'x-opencode-session';
 /** Conversations the panel keeps before dropping the least recently used one. */
 const MAX_SESSIONS = 30;
@@ -150,7 +150,7 @@ export function apply(ctx, config) {
   ctx.inject(['webServer'], (scope) => {
     scope.effect(
       () => scope.webServer.register({ kind: 'prefix', path: API_BASE, handler }),
-      'dsh-opencode-session: status api',
+      'dsh-opencode-go-session: status api',
     );
   });
 }

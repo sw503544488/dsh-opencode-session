@@ -1,14 +1,14 @@
 {
-  "name": "dsh-opencode-session",
+  "name": "dsh-opencode-go-session",
   "version": "0.1.0",
   "description": "Sends a stable per-conversation x-opencode-session header to OpenCode Go (and any pi-ai endpoint), so routing and prompt caching stay consistent, with a sidebar panel showing the value each conversation sent.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sw503544488/dsh-opencode-session.git"
+    "url": "git+https://github.com/sw503544488/dsh-opencode-go-session.git"
   },
-  "homepage": "https://github.com/sw503544488/dsh-opencode-session#readme",
+  "homepage": "https://github.com/sw503544488/dsh-opencode-go-session#readme",
   "bugs": {
-    "url": "https://github.com/sw503544488/dsh-opencode-session/issues"
+    "url": "https://github.com/sw503544488/dsh-opencode-go-session/issues"
   },
   "type": "module",
   "main": "index.js",
