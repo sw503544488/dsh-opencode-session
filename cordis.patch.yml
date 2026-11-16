@@ -1,0 +1,17 @@
+# Bundle patch for dsh-opencode-session.
+#
+# Every field below is optional; the defaults are what most users want.
+# Uncomment to change them, then reload the profile.
+- insert:
+    - id: opencode-session
+      name: 'dsh-opencode-session'
+      # config:
+      #   # Header that carries the conversation id. Default: x-opencode-session.
+      #   headerName: x-opencode-session
+      #   # Which pi-ai endpoints receive it: `opencode` (only *.opencode.ai,
+      #   # the default) or `all` (every pi-ai provider route).
+      #   endpoints: opencode
+      #   # Value used by calls that carry no DSH session id, such as a title or
+      #   # compaction request from outside a conversation. Empty means omit the
+      #   # header on those calls.
+      #   fallbackValue: ''
